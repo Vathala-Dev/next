@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VaThala">
+  <defs>
+    <linearGradient id="v-bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a4338" />
+      <stop offset="0.42" stop-color="#1e4d3f" />
+      <stop offset="1" stop-color="#163830" />
+    </linearGradient>
+    <linearGradient id="v-gold" x1="32" y1="16" x2="32" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff9e6" />
+      <stop offset="0.12" stop-color="#ffe9a8" />
+      <stop offset="0.28" stop-color="#f5d061" />
+      <stop offset="0.42" stop-color="#d4af37" />
+      <stop offset="0.52" stop-color="#b8860b" />
+      <stop offset="0.62" stop-color="#fff1b8" />
+      <stop offset="0.78" stop-color="#e6c35c" />
+      <stop offset="1" stop-color="#9a7209" />
+      <animate attributeName="y1" values="14;24;14" dur="3.2s" repeatCount="indefinite" />
+      <animate attributeName="y2" values="44;54;44" dur="3.2s" repeatCount="indefinite" />
+    </linearGradient>
+    <linearGradient id="v-shine" gradientUnits="userSpaceOnUse" x1="-24" y1="32" x2="24" y2="32">
+      <stop offset="0" stop-color="#fff8dc" stop-opacity="0" />
+      <stop offset="0.48" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="1" stop-color="#fff8dc" stop-opacity="0" />
+      <animate attributeName="x1" values="-40;88;-40" dur="4.5s" repeatCount="indefinite" />
+      <animate attributeName="x2" values="8;136;8" dur="4.5s" repeatCount="indefinite" />
+    </linearGradient>
+    <clipPath id="v-circle-clip">
+      <circle cx="32" cy="32" r="30" />
+    </clipPath>
+  </defs>
+  <circle
+    cx="32"
+    cy="32"
+    r="30"
+    fill="url(#v-bg)"
+    stroke="#d4af37"
+    stroke-opacity="0.5"
+    stroke-width="1.2"
+  />
+  <g clip-path="url(#v-circle-clip)">
+    <rect x="0" y="0" width="64" height="64" fill="url(#v-shine)" opacity="0.4" />
+  </g>
+  <text
+    x="32"
+    y="41"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="34"
+    font-weight="700"
+    fill="url(#v-gold)"
+  >
+    V
+  </text>
+</svg>

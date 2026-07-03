@@ -1,0 +1,48 @@
+# Build check for the static site.
+#
+# Production (vathala.com) is deployed separately by uploading the built `out/`
+# folder to the Apache server via SFTP — NOT from this workflow. This workflow
+# only verifies that the site still builds on every push to main, so a broken
+# build is caught before someone deploys it manually.
+#
+# The built site is uploaded as a downloadable artifact ("site-out") for
+# convenience. GitHub Pages deployment was removed because Pages is not enabled
+# for this repo and the staging mirror is not used.
+
+name: Build site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build static export
+        run: pnpm run build
+        env:
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-out
+          path: out
