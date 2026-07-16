@@ -11,7 +11,7 @@ export type GeneralEnquiryPayload = {
 export type CreateGeneralEnquiryResult =
   | { ok: true; message: string }
   | { ok: false; message: string };
-  const DEFAULT_API_ORIGIN = "https://52.66.187.242:3001";
+  const DEFAULT_API_ORIGIN = "http://52.66.187.242:3001";
 
 // const DEFAULT_API_ORIGIN = "https://dev.vathala.com";
 
