@@ -1,4 +1,4 @@
-const FAQ_API_URL = "https://vathala.com/users/getHomeFaq";
+const FAQ_API_URL = "https://52.66.187.242:3001/users/getHomeFaq";
 
 type ApiFaq = {
   _id: string;

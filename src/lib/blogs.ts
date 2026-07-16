@@ -1,6 +1,6 @@
 import { stripEmDashes } from "@/lib/strip-em-dashes";
 
-const BLOG_API_URL = "https://vathala.com/users/getAllBlogs";
+const BLOG_API_URL = "https://52.66.187.242:3001/users/getAllBlogs";
 
 export type BlogFaq = {
   question: string;
