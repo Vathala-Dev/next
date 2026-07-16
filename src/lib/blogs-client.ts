@@ -1,6 +1,6 @@
 import type { BlogPost, BlogFaq, HowToStep } from "@/lib/blogs";
 
-const BLOG_API_URL = "https://vathala.com/users/getAllBlogs";
+const BLOG_API_URL = "http://52.66.187.242:3001/users/getAllBlogs";
 
 type ApiBlogPost = {
   _id: string;
