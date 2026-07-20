@@ -1,4 +1,6 @@
-const FAQ_API_URL = "http://52.66.187.242:3001/users/getHomeFaq";
+import { API_BASE_URL } from "@/config/api";
+
+const FAQ_API_URL = `${API_BASE_URL}/users/getHomeFaq`;
 
 type ApiFaq = {
   _id: string;
