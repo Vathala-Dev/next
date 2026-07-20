@@ -1,6 +1,7 @@
+import { API_BASE_URL } from "@/config/api";
 import type { BlogPost, BlogFaq, HowToStep } from "@/lib/blogs";
 
-const BLOG_API_URL = "http://52.66.187.242:3001/users/getAllBlogs";
+const BLOG_API_URL = `${API_BASE_URL}/users/getAllBlogs`;
 
 type ApiBlogPost = {
   _id: string;

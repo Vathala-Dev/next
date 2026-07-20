@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "@/config/api";
+
 export type GeneralEnquiryPayload = {
   name: string;
   phone: string;
@@ -11,9 +13,8 @@ export type GeneralEnquiryPayload = {
 export type CreateGeneralEnquiryResult =
   | { ok: true; message: string }
   | { ok: false; message: string };
-  const DEFAULT_API_ORIGIN = "http://52.66.187.242:3001";
+  const DEFAULT_API_ORIGIN = `${API_BASE_URL}`;
 
-// const DEFAULT_API_ORIGIN = "https://dev.vathala.com";
 
 const getApiOrigin = (): string =>
   process.env.NEXT_PUBLIC_VATHALA_API_URL?.replace(/\/$/, "") ||
