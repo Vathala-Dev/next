@@ -4,7 +4,6 @@ import type { NextConfig } from "next";
 const basePath = (process.env.BASE_PATH || "").replace(/\/$/, "");
 
 const nextConfig: NextConfig = {
-  output: "standalone",
   trailingSlash: true,
   basePath: basePath || undefined,
   assetPrefix: basePath ? `${basePath}/` : undefined,
