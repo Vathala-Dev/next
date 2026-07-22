@@ -70,30 +70,30 @@ export const ContactUsSection = () => (
                 </article>
               );
             })}
+            {socialLinks.length > 0 && (
+              <div className="mt-6">
+                <p className="text-base font-semibold uppercase tracking-wider text-vathala-forest/95">
+                  Social Links
+                </p>
+                <div className="mt-4 flex gap-3" aria-label="Social media">
+                  {socialLinks.map(({ label, href, Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex size-10 items-center justify-center rounded-full transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vathala-forest"
+                      aria-label={label}
+                    >
+                      <Icon className="size-10" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
-      {socialLinks.length > 0 && (
-        <div className="lg:hidden">
-          <p className="text-base font-semibold uppercase tracking-wider text-vathala-forest/95">
-            Social Links
-          </p>
-          <div className="mt-4 flex gap-3" aria-label="Social media">
-            {socialLinks.map(({ label, href, Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className="flex size-10 items-center justify-center rounded-full transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vathala-forest"
-                aria-label={label}
-              >
-                <Icon className="size-10" />
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
 
       <ContactUsForm />
     </div>
