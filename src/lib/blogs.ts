@@ -128,7 +128,7 @@ const normalizeBlogPost = (post: BlogPost): BlogPost => ({
 let cachedPosts: BlogPost[] | null = null;
 
 const fetchFromApi = async (): Promise<BlogPost[]> => {
-  if (cachedPosts) return cachedPosts;
+  // if (cachedPosts) return cachedPosts;
   const res = await fetch(BLOG_API_URL, { next: { revalidate: 0 } });
   if (!res.ok) throw new Error(`Blog API responded with ${res.status}`);
   const json: ApiResponse = await res.json();
@@ -137,7 +137,7 @@ const fetchFromApi = async (): Promise<BlogPost[]> => {
     .filter((p) => p.isActive !== false)
     .map((p) => normalizeBlogPost(mapApiPost(p)))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  cachedPosts = posts;
+  // cachedPosts = posts;
 
   console.log(`Fetched blog posts from API:`, posts);
 

@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { BlogDetail } from "@/components/vathala/blog-detail";
 import { BlogPageShell } from "@/components/vathala/blog-page-shell";
 import { getAllBlogSlugs ,getBlogBySlug} from "@/lib/blogs";
-export async function generateStaticParams() {
-  const slugs = await getAllBlogSlugs();
-  return (
+// export async function generateStaticParams() {
+//   const slugs = await getAllBlogSlugs();
+//   return (
 
-    slugs.map((slug) => ({ slug }))
-  )
-}
+//     slugs.map((slug) => ({ slug }))
+//   )
+// }
+export const dynamic = "force-dynamic";
 
 // export const metadata: Metadata = {
 //   title: "Blog",
