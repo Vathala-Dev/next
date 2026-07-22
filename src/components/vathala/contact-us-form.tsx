@@ -14,6 +14,8 @@ import {
   isValidIndianPhone,
 } from "@/lib/indian-phone";
 import { OTHER_SERVICES_SLUG } from "@/lib/vathala-services";
+import { ServiceSelect } from "@/components/vathala/ui/service-select";
+
 
 const inputClass =
   "mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-base text-vathala-text outline-none transition-colors focus:border-vathala-forest/40 focus:ring-2 focus:ring-vathala-forest/15";
@@ -24,6 +26,8 @@ export const ContactUsForm = () => {
     phone: "",
     location: "",
     message: "",
+    service: "",
+    serviceDetails: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
@@ -47,10 +51,11 @@ export const ContactUsForm = () => {
     isValidIndianPhone(form.phone) &&
     form.location.trim().length > 1 &&
     form.message.trim().length > 3 &&
+    // form.service.trim().length > 1 &&
     (!captchaRequired || Boolean(captchaToken));
 
   const resetForm = () => {
-    setForm({ name: "", phone: "", location: "", message: "" });
+    setForm({ name: "", phone: "", location: "", message: "", service: "", serviceDetails: "" });
     setCaptchaToken(null);
     setCaptchaResetKey((key) => key + 1);
     setPhoneTouched(false);
@@ -59,7 +64,7 @@ export const ContactUsForm = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit || status === "sending") return;
-
+console.log("Submitting form:", form, "Captcha token:", captchaToken);
     setStatus("sending");
     setSubmitError(null);
 
@@ -67,7 +72,7 @@ export const ContactUsForm = () => {
       name: form.name,
       phone: form.phone,
       city: form.location,
-      serviceSlug: OTHER_SERVICES_SLUG,
+      serviceSlug: form.service || undefined,
       serviceDetails: form.message,
       urgency: "normal",
       cfTurnstileToken: captchaToken ?? "",
@@ -112,7 +117,7 @@ export const ContactUsForm = () => {
   return (
     <div className="rounded-2xl border border-black/5 bg-white p-4 shadow-sm sm:p-8">
       <h2 className="font-heading text-lg font-medium text-vathala-forest sm:text-2xl">
-        Have Question? Write a Message
+        Enquiry About Our Services
       </h2>
 
       <form className="mt-4 space-y-4 sm:mt-6 sm:space-y-5" onSubmit={onSubmit} noValidate>
@@ -175,6 +180,37 @@ export const ContactUsForm = () => {
               {phoneError}
             </p>
           ) : null}
+        </div>
+        <div>
+          <label
+            htmlFor="contact-service"
+            className="block text-base font-semibold text-vathala-forest"
+          >
+            Service
+          </label>
+
+          <select
+            id="contact-service"
+            value={form.service}
+            onChange={(e) =>
+              setForm((prev) => ({
+                ...prev,
+                service: e.target.value,
+              }))
+            }
+            aria-placeholder="Select the Service"
+            className={inputClass}
+            required
+          >
+            <option value="Home Doctor">Home Doctor</option>
+            <option value="Nursing Services">Nursing Services</option>
+            <option value="Physiotherapy">Physiotherapy</option>
+            <option value="Wound Care">Wound Care</option>
+            <option value="Elderly Care">Elderly Care</option>
+            <option value="Blood Test">Blood Test</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Veterinary">Veterinary</option>
+          </select>
         </div>
 
         <div>

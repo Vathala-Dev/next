@@ -17,7 +17,7 @@ type SocialLink = {
   Icon: ComponentType<{ className?: string }>;
 };
 
-const socialLinks: SocialLink[] = [
+export const socialLinks: SocialLink[] = [
   {
     label: "Facebook",
     href: "https://www.facebook.com/people/VaThala/61554658859007/",
@@ -40,7 +40,7 @@ const socialLinks: SocialLink[] = [
   },
 ];
 
-const quickLinks = [
+ const quickLinks = [
   { href: "/contact-us", label: "Contact Us" },
   { href: "/#services", label: "Services" },
   { href: "/blog", label: "Blogs" },

@@ -4,7 +4,7 @@ export type GeneralEnquiryPayload = {
   name: string;
   phone: string;
   city: string;
-  serviceSlug: string;
+  serviceSlug?: string;
   serviceDetails?: string;
   urgency: "normal" | "immediate";
   cfTurnstileToken: string;
