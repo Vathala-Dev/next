@@ -76,5 +76,7 @@ export const fetchBlogsClient = async (): Promise<{
   const categories = [
     ...new Set(posts.map((p) => p.category).filter(Boolean)),
   ] as string[];
+  console.log(`Fetched blog posts from API:`, posts);
+  console.log(`Fetched blog categories from API:`, categories);
   return { posts, categories };
 };

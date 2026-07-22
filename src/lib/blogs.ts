@@ -94,10 +94,10 @@ const mapApiPost = (api: ApiBlogPost): BlogPost => ({
   ratingSchema:
     api.ratingSchema?.name
       ? {
-          ratingName: api.ratingSchema.name,
-          ratingDescription: api.ratingSchema.description,
-          ratingCount: api.ratingSchema.ratingCount,
-        }
+        ratingName: api.ratingSchema.name,
+        ratingDescription: api.ratingSchema.description,
+        ratingCount: api.ratingSchema.ratingCount,
+      }
       : undefined,
 });
 
@@ -129,20 +129,34 @@ let cachedPosts: BlogPost[] | null = null;
 
 const fetchFromApi = async (): Promise<BlogPost[]> => {
   if (cachedPosts) return cachedPosts;
-  const res = await fetch(BLOG_API_URL, { next: { revalidate: 3600 } });
+  const res = await fetch(BLOG_API_URL, { next: { revalidate: 0 } });
   if (!res.ok) throw new Error(`Blog API responded with ${res.status}`);
   const json: ApiResponse = await res.json();
+  console.log(`Fetched blog posts from API:`, json.data);
   const posts = json.data
     .filter((p) => p.isActive !== false)
     .map((p) => normalizeBlogPost(mapApiPost(p)))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   cachedPosts = posts;
-  return posts;
+
+  console.log(`Fetched blog posts from API:`, posts);
+
+  return (
+
+
+    posts
+  )
 };
 
 export const getAllBlogSlugs = async (): Promise<string[]> => {
   const posts = await fetchFromApi();
   return posts.map((p) => p.slug);
+};
+export const getBlogBySlug = async (
+  slug: string,
+): Promise<BlogPost | null> => {
+  const posts = await fetchFromApi();
+  return posts.find((post) => post.slug === slug) ?? null;
 };
 
 export const formatBlogDate = (dateStr: string): string => {
