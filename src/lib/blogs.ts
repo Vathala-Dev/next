@@ -132,14 +132,14 @@ const fetchFromApi = async (): Promise<BlogPost[]> => {
   const res = await fetch(BLOG_API_URL, { next: { revalidate: 0 } });
   if (!res.ok) throw new Error(`Blog API responded with ${res.status}`);
   const json: ApiResponse = await res.json();
-  console.log(`Fetched blog posts from API:`, json.data);
+  // console.log(`Fetched blog posts from API:`, json.data);
   const posts = json.data
     .filter((p) => p.isActive !== false)
     .map((p) => normalizeBlogPost(mapApiPost(p)))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   // cachedPosts = posts;
 
-  console.log(`Fetched blog posts from API:`, posts);
+  // console.log(`Fetched blog posts from API:`, posts);
 
   return (
 
