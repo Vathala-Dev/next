@@ -22,6 +22,7 @@ type ApiBlogPost = {
     description: string;
     ratingCount: number;
   };
+  updatedAt:string;
 };
 
 type ApiResponse = {
@@ -52,6 +53,7 @@ const mapApiPost = (api: ApiBlogPost): BlogPost => ({
   faqList: api.faqList ?? [],
   category: api.category,
   howToSteps: api.howToSteps,
+  updatedAt:api.updatedAt,
   ratingSchema:
     api.ratingSchema?.name
       ? {
@@ -80,3 +82,7 @@ export const fetchBlogsClient = async (): Promise<{
   // console.log(`Fetched blog categories from API:`, categories);
   return { posts, categories };
 };
+// export const getAllBlogs = async () => {
+//   // console.log(fetchFromApi(),"postssssfor sitemap")
+//   return fetchBlogsClient();
+// };

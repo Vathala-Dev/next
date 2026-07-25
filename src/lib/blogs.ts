@@ -40,6 +40,7 @@ export type BlogPost = {
   ogImageUrl?: string;
   howToSteps?: HowToStep[];
   ratingSchema?: RatingSchema;
+  updatedAt:string;
 };
 
 type ApiBlogPost = {
@@ -61,6 +62,7 @@ type ApiBlogPost = {
     description: string;
     ratingCount: number;
   };
+  updatedAt:string;
 };
 
 type ApiResponse = {
@@ -91,6 +93,7 @@ const mapApiPost = (api: ApiBlogPost): BlogPost => ({
   faqList: api.faqList ?? [],
   category: api.category,
   howToSteps: api.howToSteps,
+  updatedAt:api.updatedAt,
   ratingSchema:
     api.ratingSchema?.name
       ? {
@@ -116,6 +119,7 @@ const normalizeBlogPost = (post: BlogPost): BlogPost => ({
     question: safe(faq.question),
     answer: safe(faq.answer),
   })),
+  updatedAt:post.updatedAt,
   howToSteps: post.howToSteps?.map((step) => ({
     ...step,
     stepTitle: safe(step.stepTitle),
@@ -127,12 +131,12 @@ const normalizeBlogPost = (post: BlogPost): BlogPost => ({
 
 let cachedPosts: BlogPost[] | null = null;
 
-const fetchFromApi = async (): Promise<BlogPost[]> => {
+export const fetchFromApi = async (): Promise<BlogPost[]> => {
   // if (cachedPosts) return cachedPosts;
   const res = await fetch(BLOG_API_URL, { next: { revalidate: 0 } });
   if (!res.ok) throw new Error(`Blog API responded with ${res.status}`);
   const json: ApiResponse = await res.json();
-  // console.log(`Fetched blog posts from API:`, json.data);
+  console.log(`Fetched blog posts from API:`, json.data);
   const posts = json.data
     .filter((p) => p.isActive !== false)
     .map((p) => normalizeBlogPost(mapApiPost(p)))
@@ -147,6 +151,7 @@ const fetchFromApi = async (): Promise<BlogPost[]> => {
     posts
   )
 };
+
 
 export const getAllBlogSlugs = async (): Promise<string[]> => {
   const posts = await fetchFromApi();
