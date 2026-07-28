@@ -15,12 +15,14 @@ import {
 } from "@/lib/indian-phone";
 import { OTHER_SERVICES_SLUG } from "@/lib/vathala-services";
 import { ServiceSelect } from "@/components/vathala/ui/service-select";
-
+interface ContactUsFormProps {
+  source?: string;
+}
 
 const inputClass =
   "mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-base text-vathala-text outline-none transition-colors focus:border-vathala-forest/40 focus:ring-2 focus:ring-vathala-forest/15";
 
-export const ContactUsForm = () => {
+export const ContactUsForm = ({source}:ContactUsFormProps) => {
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -28,6 +30,7 @@ export const ContactUsForm = () => {
     message: "",
     service: "",
     serviceDetails: "",
+    source: source || "contact-us-form",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
@@ -55,7 +58,7 @@ export const ContactUsForm = () => {
     (!captchaRequired || Boolean(captchaToken));
 
   const resetForm = () => {
-    setForm({ name: "", phone: "", location: "", message: "", service: "", serviceDetails: "" });
+    setForm({ name: "", phone: "", location: "", message: "", service: "", serviceDetails: "" ,source: source || "contact-us-form"});
     setCaptchaToken(null);
     setCaptchaResetKey((key) => key + 1);
     setPhoneTouched(false);
@@ -64,7 +67,7 @@ export const ContactUsForm = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit || status === "sending") return;
-console.log("Submitting form:", form, "Captcha token:", captchaToken);
+    console.log("Submitting form:", form, "Captcha token:", captchaToken);
     setStatus("sending");
     setSubmitError(null);
 
@@ -76,7 +79,9 @@ console.log("Submitting form:", form, "Captcha token:", captchaToken);
       serviceDetails: form.message,
       urgency: "normal",
       cfTurnstileToken: captchaToken ?? "",
+      source: form.source,
     });
+
 
     if (result.ok) {
       setStatus("sent");

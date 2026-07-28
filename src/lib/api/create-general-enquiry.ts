@@ -8,6 +8,7 @@ export type GeneralEnquiryPayload = {
   serviceDetails?: string;
   urgency: "normal" | "immediate";
   cfTurnstileToken: string;
+  source?: string;
 };
 
 export type CreateGeneralEnquiryResult =
@@ -48,6 +49,7 @@ export const createGeneralEnquiry = async (
     message: buildEnquiryMessage(payload.serviceDetails),
     enquiryType: payload.serviceSlug,
     urgency: payload.urgency,
+    source: payload.source?.trim() || "contact-us-form",
     /** Cloudflare Turnstile token (API verifies via siteverify). */
     cfTurnstileToken: payload.cfTurnstileToken,
   };
