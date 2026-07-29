@@ -207,6 +207,7 @@ export const ContactUsForm = ({source}:ContactUsFormProps) => {
             className={inputClass}
             required
           >
+            <option value="">Select a service</option>
             <option value="Home Doctor">Home Doctor</option>
             <option value="Nursing Services">Nursing Services</option>
             <option value="Physiotherapy">Physiotherapy</option>
