@@ -42,9 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.4,
   }));
 
-  // const slugs = await getAllBlogSlugs();
 
-  // const blogs = await getAllBlogs();
   
  const { posts } = await fetchBlogsClient();
 

@@ -6,6 +6,7 @@ import { SiteJsonLd } from "@/components/seo/site-json-ld";
 import { brandColors } from "@/lib/brand-colors";
 import { siteDescription, siteName, siteTagline, siteUrl } from "@/lib/site";
 import "./globals.css";
+import Clarity from "@/components/Clarity";
 
 const GTM_ID = "GTM-WLPTNTZD";
 
@@ -100,6 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       />
       <body className="min-h-full font-body">
         {/* Google Tag Manager - noscript fallback */}
+        <Clarity />
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
