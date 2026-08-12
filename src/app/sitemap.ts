@@ -8,28 +8,28 @@ export const dynamic = "force-dynamic"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const home = {
-    url: `${siteUrl}/`,
+    url: `${siteUrl}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 1,
   };
 
   const services = allServicePaths.map((path) => ({
-    url: `${siteUrl}${path}/`,
+    url: `${siteUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.85,
   }));
 
   const blogIndex = {
-    url: `${siteUrl}/blog/`,
+    url: `${siteUrl}/blog`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
   };
 
   const contact = {
-    url: `${siteUrl}/contact-us/`,
+    url: `${siteUrl}/contact-us`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.75,
