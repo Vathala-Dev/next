@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   };
 
   const legal = ["/privacy-policy", "/terms-conditions"].map((path) => ({
-    url: `${siteUrl}${path}/`,
+    url: `${siteUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "yearly" as const,
     priority: 0.4,
