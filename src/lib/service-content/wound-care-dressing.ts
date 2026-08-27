@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 
 export const woundCareDressing: ServicePageData = {
   path: "/wound-care-dressing",
-  sourceUrl: "https://vathala.com/wound-care-dressing",
+  sourceUrl: "https://curoaid.com/wound-care-dressing",
   metaTitle: "Wound Care Dressing at Home | VaThala",
   metaDescription:
     "Book Wound Care Dressing at Home with VaThala. Our healthcare professionals provide sterile dressing changes, wound monitoring, and recovery support at home.",

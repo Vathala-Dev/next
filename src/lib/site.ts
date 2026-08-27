@@ -1,6 +1,8 @@
 /** Canonical site origin - set in production via NEXT_PUBLIC_SITE_URL (no trailing slash). */
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://vathala.com"
+  // process.env.NEXT_PUBLIC_SITE_URL ?? "https://vathala.com"
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://dev.curoaid.com"
+
 ).replace(/\/$/, "");
 
 export const siteName = "VaThala";

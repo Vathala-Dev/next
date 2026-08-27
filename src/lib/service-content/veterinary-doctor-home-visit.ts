@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 
 export const veterinaryDoctorHomeVisit: ServicePageData = {
   path: "/veterinary-doctor-home-visit",
-  sourceUrl: "https://vathala.com/veterinary-doctor-home-visit",
+  sourceUrl: "https://curoaid.com/veterinary-doctor-home-visit",
   metaTitle: "Veterinary Services at Home | VaThala",
   metaDescription:
     "Get expert Veterinary Services at Home with VaThala. Our experienced professionals provide pet care, health assessments, and wellness support at your doorstep.",

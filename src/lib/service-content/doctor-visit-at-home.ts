@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 
 export const doctorVisitAtHome: ServicePageData = {
   path: "/doctor-visit-at-home",
-  sourceUrl: "https://vathala.com/doctor-visit-at-home",
+  sourceUrl: "https://curoaid.com/doctor-visit-at-home",
   metaTitle: "Doctor Visit at Home | VaThala",
   metaDescription:
     "Book a trusted Doctor at Home with VaThala. Get expert consultations, routine check-ups, follow-up care, and personalized healthcare at your doorstep.",

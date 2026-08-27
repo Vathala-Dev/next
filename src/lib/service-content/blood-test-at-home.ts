@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 
 export const bloodTestAtHome: ServicePageData = {
   path: "/blood-test-at-home",
-  sourceUrl: "https://vathala.com/blood-test-at-home",
+  sourceUrl: "https://curoaid.com/blood-test-at-home",
   metaTitle: "Blood Test at Home | VaThala",
   metaDescription:
     "Get a Blood Test at Home with VaThala. Our trained professionals provide safe sample collection, accurate diagnostics, and timely reports at your doorstep.",

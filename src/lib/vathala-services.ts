@@ -12,7 +12,7 @@ import {
 
 export type ServiceItem = {
   slug: string;
-  /** Canonical service URL (matches vathala.com paths). */
+  /** Canonical service URL (matches https://curoaid.com paths). */
   path: string;
   title: string;
   description: string;

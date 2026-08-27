@@ -1,4 +1,4 @@
-/** Patient stories from https://vathala.com/home — shown as quote cards. */
+/** Patient stories from https://curoaid.com/home — shown as quote cards. */
 export type Testimonial = {
   id: string;
   name: string;

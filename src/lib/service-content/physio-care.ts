@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 
 export const physioCare: ServicePageData = {
   path: "/physio-care",
-  sourceUrl: "https://vathala.com/physio-care",
+  sourceUrl: "https://curoaid.com/physio-care",
   metaTitle: "Physiotherapy Service at Home | VaThala",
   metaDescription:
     "VaThala offers trusted Physiotherapy at Home services to help recover from injuries, improve mobility, strengthen muscles, and enhance overall well-being.",

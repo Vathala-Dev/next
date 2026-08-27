@@ -1,6 +1,6 @@
 import type { LegalDocument } from "@/lib/legal/types";
 
-/** Sourced from https://vathala.com/privacy-policy */
+/** Sourced from https://curoaid.com/privacy-policy */
 export const privacyPolicy: LegalDocument = {
   title: "Privacy Policy",
   lastUpdated: "March 9, 2023",

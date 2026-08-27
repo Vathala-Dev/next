@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 
 export const nursingCare: ServicePageData = {
   path: "/nursing-care",
-  sourceUrl: "https://vathala.com/nursing-care",
+  sourceUrl: "https://curoaid.com/nursing-care",
   metaTitle: "Nursing Service at Home | VaThala",
   metaDescription:
     "Experience professional Nursing Service at Home with VaThala. Our skilled nurses provide compassionate care, health monitoring, and recovery support at your doorstep.",

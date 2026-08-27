@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 
 export const elderCare: ServicePageData = {
   path: "/elder-care",
-  sourceUrl: "https://vathala.com/elder-care",
+  sourceUrl: "https://curoaid.com/elder-care",
   metaTitle: "Elder Care Services at Home | VaThala",
   metaDescription:
     "Book trusted Elder Care Services at Home with VaThala. Get personal care, mobility support, companionship, and wellness assistance for seniors at home.",
