@@ -21,7 +21,7 @@ export default function NotFound() {
         Page not found
       </h1>
       <p className="mt-4 text-vathala-muted">
-        The page you are looking for does not exist.
+        The page you are looking for does not exist. pls go home and try again. If you think this is a mistake, please contact us.
       </p>
       <Link
         href="/"
